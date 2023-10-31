@@ -4,11 +4,3 @@
   padding: 2rem;
   text-align: center;
 }
-.gallery{
-  height: 200px;
-  width: 200px;
-  border: 1px solid black;
-  border-radius: 25px;
-  /* padding : 2rem; */
-  margin: 10px;
-}
