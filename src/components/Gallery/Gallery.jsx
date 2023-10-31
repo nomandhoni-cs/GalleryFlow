@@ -10,9 +10,8 @@ const Gallery = () => {
         <img
           key={image.id}
           className="gallery"
-          title={image.title}
+          alt={image.title}
           src={image.src}
-          alt=""
         />
       ))}
     </>
