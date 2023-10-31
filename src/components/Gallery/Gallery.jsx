@@ -5,6 +5,24 @@ import "./Gallery.css";
 
 const Gallery = () => {
   const [imagesInGallery, setImagesInGallery] = useState(images);
+  const [selectedImages, setSelectedImages] = useState([]);
+
+  const toggleImageSelection = (imageId) => {
+    if (selectedImages.includes(imageId)) {
+      setSelectedImages(selectedImages.filter((id) => id !== imageId));
+    } else {
+      setSelectedImages([...selectedImages, imageId]);
+    }
+  };
+
+  const onDeleteSelectedImages = () => {
+    // Remove selected images from the gallery
+    setImagesInGallery(
+      imagesInGallery.filter((image) => !selectedImages.includes(image.id))
+    );
+    // Clear the selection
+    setSelectedImages([]);
+  };
 
   const onDragEnd = (result) => {
     if (!result.destination) {
@@ -20,6 +38,12 @@ const Gallery = () => {
 
   return (
     <div className="gallery-container">
+      <div className="selection-bar">
+        <span>Selected: {selectedImages.length}</span>
+        {selectedImages.length > 0 && (
+          <button onClick={onDeleteSelectedImages}>Delete Selected</button>
+        )}
+      </div>
       <DragDropContext onDragEnd={onDragEnd}>
         <Droppable droppableId="gallery">
           {(provided) => (
@@ -44,7 +68,14 @@ const Gallery = () => {
                           index === 0 ? "feature-gallery" : ""
                         }`}
                       >
-                        <img alt={image.title} src={image.src} />
+                        <img
+                          alt={image.title}
+                          src={image.src}
+                          onClick={() => toggleImageSelection(image.id)}
+                        />
+                        {selectedImages.includes(image.id) && (
+                          <div className="image-checkbox">✓</div>
+                        )}
                       </div>
                     )}
                   </Draggable>
