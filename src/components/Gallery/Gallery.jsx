@@ -21,7 +21,7 @@ const Gallery = () => {
   return (
     <div className="gallery-container">
       <DragDropContext onDragEnd={onDragEnd}>
-        <Droppable droppableId="gallery" direction="horizontal">
+        <Droppable droppableId="gallery">
           {(provided) => (
             <div
               ref={provided.innerRef}
