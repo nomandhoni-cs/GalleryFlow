@@ -4,7 +4,9 @@ import Gallery from "./components/Gallery/Gallery";
 function App() {
   return (
     <>
-      <Gallery />
+      <div className="container">
+        <Gallery />
+      </div>
     </>
   );
 }
