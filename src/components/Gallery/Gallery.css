@@ -1,13 +1,19 @@
 .grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    /* grid-template-rows: repeat(5, 1fr); */
+    grid-template-rows: repeat(5, 1fr);
     grid-gap: 10px;
     max-width: 80%;
     margin: 10px auto;
 }
+.feature-gallery {
+    width: 400px;
+    height: 400px;
+}
 
 .grid-item {
+    width: 200px;
+    height: 200px;
     background: #fff;
     margin: 10px;
     opacity: 1;
@@ -24,13 +30,7 @@
     border-radius: 7px;
     width: 100%;
     height: 100%;
-    object-fit: cover;
 }
-
-/* .feature-gallery {
-    grid-column: 1 / 3;
-    grid-row: 1 / 3;
-} */
 
 .add-image {
     text-align: center;

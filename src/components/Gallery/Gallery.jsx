@@ -17,35 +17,67 @@ import {
 import { Grid } from "../Grid/Grid";
 import { SortablePhoto } from "./SortablePhoto";
 import { Photo } from "../Photo/Photo";
-import photos from "../../data/images.json";
 
-const UploadGallery = () => {
-  const [items, setItems] = useState(photos);
+const Gallery = ({ items, setItems }) => {
   const [activeId, setActiveId] = useState(null);
+  const [selectedImages, setSelectedImages] = useState([]);
   const sensors = useSensors(useSensor(MouseSensor), useSensor(TouchSensor));
+  function handleSelectImage(imageUrl) {
+    setSelectedImages((selectedImages) => [...selectedImages, imageUrl]);
+  }
+
+  function handleDeselectImage(imageUrl) {
+    setSelectedImages((selectedImages) =>
+      selectedImages.filter((url) => url !== imageUrl)
+    );
+  }
+
+  function handleDeleteSelectedImages() {
+    setItems((items) => items.filter((url) => !selectedImages.includes(url)));
+    setSelectedImages([]);
+  }
 
   return (
-    <DndContext
-      sensors={sensors}
-      collisionDetection={closestCenter}
-      onDragStart={handleDragStart}
-      onDragEnd={handleDragEnd}
-      onDragCancel={handleDragCancel}
-    >
-      <SortableContext items={items} strategy={rectSortingStrategy}>
-        <Grid>
-          {items.map((url, index) => (
-            <SortablePhoto key={url} url={url} index={index} />
-          ))}
-        </Grid>
-      </SortableContext>
+    <div>
+      <div className="selected-image-count">
+        {selectedImages.length} images selected
+      </div>
+      <button onClick={handleDeleteSelectedImages}>Delete Selected</button>
+      <DndContext
+        sensors={sensors}
+        collisionDetection={closestCenter}
+        onDragStart={handleDragStart}
+        onDragEnd={handleDragEnd}
+        onDragCancel={handleDragCancel}
+      >
+        <SortableContext items={items} strategy={rectSortingStrategy}>
+          <Grid>
+            {items.map((url, index) => (
+              <SortablePhoto
+                key={url}
+                url={url}
+                index={index}
+                selected={selectedImages.includes(url)}
+                onSelect={handleSelectImage}
+                onDeselect={handleDeselectImage}
+              />
+            ))}
+          </Grid>
+        </SortableContext>
 
-      <DragOverlay adjustScale={true}>
-        {activeId ? (
-          <Photo url={activeId} index={items.indexOf(activeId)} />
-        ) : null}
-      </DragOverlay>
-    </DndContext>
+        <DragOverlay
+          adjustScale={true}
+          dropAnimation={{
+            duration: 500,
+            easing: "cubic-bezier(0.18, 0.67, 0.6, 1.22)",
+          }}
+        >
+          {activeId ? (
+            <Photo url={activeId} index={items.indexOf(activeId)} />
+          ) : null}
+        </DragOverlay>
+      </DndContext>
+    </div>
   );
 
   function handleDragStart(event) {
@@ -72,4 +104,4 @@ const UploadGallery = () => {
   }
 };
 
-export default UploadGallery;
+export default Gallery;

@@ -1,0 +1,30 @@
+.photo-container {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    /* Change the cursor to a pointer on hover */
+}
+
+.photo-container:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+    /* Add a hover effect color */
+}
+
+.photo-container.selected {
+    border: 2px solid #0079BF;
+    /* Add a border to selected images */
+}
+
+.checkbox {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 2;
+}
+
+.photo-container.selected .checkbox {
+    display: block;
+    /* Show the checkbox when selected */
+}
+
+/* Rest of your styles for the Photo component */
