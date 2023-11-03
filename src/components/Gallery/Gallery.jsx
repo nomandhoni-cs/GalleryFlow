@@ -14,10 +14,10 @@ import {
   rectSortingStrategy,
 } from "@dnd-kit/sortable";
 
-import { Grid } from "./Grid";
+import { Grid } from "../Grid/Grid";
 import { SortablePhoto } from "./SortablePhoto";
-import { Photo } from "./Photo";
-import photos from "./photos.json";
+import { Photo } from "../Photo/Photo";
+import photos from "../../data/images.json";
 
 const UploadGallery = () => {
   const [items, setItems] = useState(photos);
@@ -33,7 +33,7 @@ const UploadGallery = () => {
       onDragCancel={handleDragCancel}
     >
       <SortableContext items={items} strategy={rectSortingStrategy}>
-        <Grid columns={5}>
+        <Grid>
           {items.map((url, index) => (
             <SortablePhoto key={url} url={url} index={index} />
           ))}

@@ -1,21 +1,19 @@
-import React, { forwardRef } from "react";
-
+import { forwardRef } from "react";
+import "./Photo.css";
 export const Photo = forwardRef(
   ({ url, index, faded, style, ...props }, ref) => {
     const inlineStyles = {
-      border: "1px solid black",
-      borderRadius: "25px",
-      opacity: faded ? "0.2" : "1",
+      border: "1px solid gray",
+      borderRadius: "20px",
+      opacity: faded ? "0.1" : "1",
       transformOrigin: "0 0",
+      cursor: "pointer",
       height: index === 0 ? 410 : 200,
       gridRowStart: index === 0 ? "span 2" : null,
       gridColumnStart: index === 0 ? "span 2" : null,
-      backgroundImage: `url("${url}")`,
-      backgroundSize: "contain",
-      backgroundPosition: "center",
       ...style,
     };
 
-    return <div ref={ref} style={inlineStyles} {...props} />;
+    return <img ref={ref} style={inlineStyles} src={url} {...props} />;
   }
 );
