@@ -1,16 +1,11 @@
 import { forwardRef } from "react";
 
-export const Photo = forwardRef(
-  (
-    { url, selected, onSelect, onDeselect, index, faded, style, ...props },
-    ref
-  ) => {
-    const inlinestyles = {
-      border: "1px solid gray",
-      borderRadius: "20px",
-      width: "100%",
-    };
+export const Photo = forwardRef(({ url, style, ...props }, ref) => {
+  const inlinestyles = {
+    width: "100%",
+    height: "100%",
+    backgroundColor: "#ffffff",
+  };
 
-    return <img ref={ref} style={inlinestyles} src={url} {...props} />;
-  }
-);
+  return <img ref={ref} style={inlinestyles} src={url} {...props} />;
+});

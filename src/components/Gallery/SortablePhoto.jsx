@@ -31,7 +31,7 @@ export const SortablePhoto = (props) => {
   };
 
   return (
-    <div
+    <label
       className={`photo-container ${selected ? "selected" : ""}`}
       onClick={() => {
         if (selected) {
@@ -57,6 +57,7 @@ export const SortablePhoto = (props) => {
         onChange={handleSelect}
         className="checkbox"
       />
-    </div>
+      <span className="selected-count">{selected ? "Selected" : ""}</span>
+    </label>
   );
 };

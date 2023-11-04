@@ -2,29 +2,48 @@
     position: relative;
     display: inline-block;
     cursor: pointer;
-    /* Change the cursor to a pointer on hover */
+    overflow: hidden;
+    border: 1px solid gray;
+    border-radius: 15px;
 }
 
 .photo-container:hover {
-    background-color: rgba(0, 0, 0, 0.2);
-    /* Add a hover effect color */
+    filter: brightness(0.7);
+    /* Darken the image on hover */
+    /* You can adjust the brightness value as needed */
 }
 
 .photo-container.selected {
-    border: 2px solid #0079BF;
-    /* Add a border to selected images */
+    /* No border when selected */
+    filter: brightness(0.7);
+    /* Darken the image when selected */
 }
 
 .checkbox {
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 20px;
+    left: 20px;
+    /* Display checkbox in the top left corner */
     z-index: 2;
+    transform: scale(1.5);
+    /* Make the checkbox 2x bigger */
 }
 
-.photo-container.selected .checkbox {
+.photo-container:hover .checkbox {
     display: block;
-    /* Show the checkbox when selected */
+    /* Show the checkbox on hover */
 }
 
-/* Rest of your styles for the Photo component */
+.selected-count {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    z-index: 2;
+    display: none;
+    /* Hide the count by default */
+}
+
+.photo-container.selected .selected-count {
+    display: block;
+    /* Show the count when selected */
+}

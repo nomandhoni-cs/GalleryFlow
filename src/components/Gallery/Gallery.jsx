@@ -66,6 +66,11 @@ const Gallery = ({ items, setItems }) => {
         </SortableContext>
 
         <DragOverlay
+          style={{
+            border: "1px solid gray",
+            borderRadius: "15px",
+            overflow: "hidden",
+          }}
           adjustScale={true}
           dropAnimation={{
             duration: 500,
