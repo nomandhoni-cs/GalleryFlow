@@ -2,6 +2,7 @@ import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 import { SinglePhoto } from "../SinglePhoto/SinglePhoto";
 import "./ReorderablePhoto.css";
+import { useState } from "react";
 
 export const ReorderablePhoto = (props) => {
   const { url, index, faded, selected, onSelect, onDeselect } = props;
@@ -13,13 +14,17 @@ export const ReorderablePhoto = (props) => {
     transition,
   };
 
+  const [isChecked, setIsChecked] = useState(selected);
+
   const handleSelect = () => {
-    if (selected) {
+    if (isChecked) {
       onDeselect(url);
     } else {
       onSelect(url);
     }
+    setIsChecked(!isChecked); // Toggle the checked state
   };
+
   const divStyle = {
     transformOrigin: "0 0",
     cursor: "pointer",
@@ -31,8 +36,8 @@ export const ReorderablePhoto = (props) => {
 
   return (
     <label
-      className={`photo-container ${selected ? "selected" : ""}`}
-      onClick={() => handleSelect()} // Remove the inner click handler
+      className={`photo-container ${isChecked ? "selected" : ""}`} // Apply "selected" class if isChecked is true
+      onClick={handleSelect}
       style={divStyle}
     >
       <SinglePhoto
@@ -42,7 +47,11 @@ export const ReorderablePhoto = (props) => {
         {...attributes}
         {...listeners}
       />
-      <input type="checkbox" checked={selected} className="checkbox" />
+      <input
+        type="checkbox"
+        checked={isChecked} // Use isChecked to control the checked state
+        className="checkbox"
+      />
     </label>
   );
 };

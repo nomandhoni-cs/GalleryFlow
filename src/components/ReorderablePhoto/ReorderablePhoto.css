@@ -7,12 +7,20 @@
     border-radius: 15px;
 }
 
+.photo-container .checkbox {
+    display: none;
+}
+
 .photo-container:hover {
     filter: brightness(0.7);
 }
 
 .photo-container.selected {
     filter: brightness(0.7);
+}
+
+.photo-container:hover .checkbox {
+    display: block;
 }
 
 .checkbox {
@@ -23,16 +31,6 @@
     transform: scale(1.5);
 }
 
-/* For Mobile Devices */
-@media screen and (max-width: 425px) {
-    .checkbox {
-        transform: scale(1);
-    }
-}
-
-.photo-container:hover .checkbox {
-    display: block;
-}
 
 .selected-count {
     position: absolute;
@@ -44,4 +42,15 @@
 
 .photo-container.selected .selected-count {
     display: block;
+}
+
+.photo-container.selected .checkbox {
+    display: block;
+}
+
+/* For Mobile Devices */
+@media screen and (max-width: 425px) {
+    .checkbox {
+        transform: scale(1);
+    }
 }
