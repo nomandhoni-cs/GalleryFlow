@@ -9,29 +9,22 @@
 
 .photo-container:hover {
     filter: brightness(0.7);
-    /* Darken the image on hover */
-    /* You can adjust the brightness value as needed */
 }
 
 .photo-container.selected {
-    /* No border when selected */
     filter: brightness(0.7);
-    /* Darken the image when selected */
 }
 
 .checkbox {
     position: absolute;
-    top: 20px;
-    left: 20px;
-    /* Display checkbox in the top left corner */
+    top: 5%;
+    left: 5%;
     z-index: 2;
     transform: scale(1.5);
-    /* Make the checkbox 2x bigger */
 }
 
 .photo-container:hover .checkbox {
     display: block;
-    /* Show the checkbox on hover */
 }
 
 .selected-count {
@@ -40,10 +33,8 @@
     left: 10px;
     z-index: 2;
     display: none;
-    /* Hide the count by default */
 }
 
 .photo-container.selected .selected-count {
     display: block;
-    /* Show the count when selected */
 }

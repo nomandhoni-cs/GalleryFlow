@@ -14,9 +14,9 @@ import {
   rectSortingStrategy,
 } from "@dnd-kit/sortable";
 
-import { Grid } from "../Grid/Grid";
-import { SortablePhoto } from "./SortablePhoto";
-import { Photo } from "../Photo/Photo";
+import { GridLayout } from "../GridLayout/GridLayout";
+import { SinglePhoto } from "../SinglePhoto/SinglePhoto";
+import { ReorderablePhoto } from "../ReorderablePhoto/ReorderablePhoto";
 
 const Gallery = ({ items, setItems }) => {
   const [activeId, setActiveId] = useState(null);
@@ -51,9 +51,9 @@ const Gallery = ({ items, setItems }) => {
         onDragCancel={handleDragCancel}
       >
         <SortableContext items={items} strategy={rectSortingStrategy}>
-          <Grid>
+          <GridLayout>
             {items.map((url, index) => (
-              <SortablePhoto
+              <ReorderablePhoto
                 key={url}
                 url={url}
                 index={index}
@@ -62,7 +62,7 @@ const Gallery = ({ items, setItems }) => {
                 onDeselect={handleDeselectImage}
               />
             ))}
-          </Grid>
+          </GridLayout>
         </SortableContext>
 
         <DragOverlay
@@ -78,7 +78,7 @@ const Gallery = ({ items, setItems }) => {
           }}
         >
           {activeId ? (
-            <Photo url={activeId} index={items.indexOf(activeId)} />
+            <SinglePhoto url={activeId} index={items.indexOf(activeId)} />
           ) : null}
         </DragOverlay>
       </DndContext>

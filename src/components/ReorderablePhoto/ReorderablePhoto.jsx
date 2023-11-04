@@ -1,9 +1,9 @@
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
-import { Photo } from "../Photo/Photo";
-import "./SortablePhoto.css";
+import { SinglePhoto } from "../SinglePhoto/SinglePhoto";
+import "./ReorderablePhoto.css";
 
-export const SortablePhoto = (props) => {
+export const ReorderablePhoto = (props) => {
   const { url, index, faded, selected, onSelect, onDeselect } = props;
   const sortable = useSortable({ id: url });
   const { attributes, listeners, setNodeRef, transform, transition } = sortable;
@@ -42,7 +42,7 @@ export const SortablePhoto = (props) => {
       }}
       style={divStyle}
     >
-      <Photo
+      <SinglePhoto
         ref={setNodeRef}
         style={style}
         url={url}
