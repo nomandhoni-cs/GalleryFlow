@@ -16,7 +16,7 @@
 }
 
 .photo-container.selected {
-    filter: brightness(0.7);
+    filter: brightness(0.9);
 }
 
 .photo-container:hover .checkbox {
