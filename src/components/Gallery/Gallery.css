@@ -6,14 +6,8 @@
     max-width: 80%;
     margin: 10px auto;
 }
-.feature-gallery {
-    width: 400px;
-    height: 400px;
-}
 
 .grid-item {
-    width: 200px;
-    height: 200px;
     background: #fff;
     margin: 10px;
     opacity: 1;
