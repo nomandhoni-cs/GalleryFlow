@@ -13,6 +13,7 @@ import {
   SortableContext,
   rectSortingStrategy,
 } from "@dnd-kit/sortable";
+import "./Gallery.css";
 
 import { GridLayout } from "../GridLayout/GridLayout";
 import { SinglePhoto } from "../SinglePhoto/SinglePhoto";
@@ -31,17 +32,8 @@ const Gallery = ({ items, setItems, selectedImages, setSelectedImages }) => {
     );
   }
 
-  function handleDeleteSelectedImages() {
-    setItems((items) => items.filter((url) => !selectedImages.includes(url)));
-    setSelectedImages([]);
-  }
-
   return (
-    <div>
-      <div className="selected-image-count">
-        {selectedImages.length} images selected
-      </div>
-      <button onClick={handleDeleteSelectedImages}>Delete Selected</button>
+    <div className="gallery-container">
       <DndContext
         sensors={sensors}
         collisionDetection={closestCenter}
@@ -67,7 +59,7 @@ const Gallery = ({ items, setItems, selectedImages, setSelectedImages }) => {
         <DragOverlay
           style={{
             border: "1px solid gray",
-            borderRadius: "15px",
+            borderRadius: "10px",
             overflow: "hidden",
           }}
           adjustScale={true}

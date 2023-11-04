@@ -4,7 +4,7 @@
     cursor: pointer;
     overflow: hidden;
     border: 1px solid gray;
-    border-radius: 15px;
+    border-radius: 10px;
 }
 
 .photo-container .checkbox {

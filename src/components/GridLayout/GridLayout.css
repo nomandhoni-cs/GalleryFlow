@@ -1,13 +1,13 @@
 .grid{
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 20px;
+    gap: 30px;
 }
 /* For Tablet Devices */
 @media screen and (max-width: 768px) {
     .grid {
         grid-template-columns: repeat(4, 1fr);
-        gap: 10px;
+        gap: 20px;
     }
 }
 /* For Mobile Devices */
