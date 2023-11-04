@@ -1,0 +1,56 @@
+.photo-container {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    overflow: hidden;
+    border: 1px solid gray;
+    border-radius: 15px;
+}
+
+.photo-container .checkbox {
+    display: none;
+}
+
+.photo-container:hover {
+    filter: brightness(0.7);
+}
+
+.photo-container.selected {
+    filter: brightness(0.7);
+}
+
+.photo-container:hover .checkbox {
+    display: block;
+}
+
+.checkbox {
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    z-index: 2;
+    transform: scale(1.5);
+}
+
+
+.selected-count {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    z-index: 2;
+    display: none;
+}
+
+.photo-container.selected .selected-count {
+    display: block;
+}
+
+.photo-container.selected .checkbox {
+    display: block;
+}
+
+/* For Mobile Devices */
+@media screen and (max-width: 425px) {
+    .checkbox {
+        transform: scale(1);
+    }
+}
