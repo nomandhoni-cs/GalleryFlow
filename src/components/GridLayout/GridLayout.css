@@ -1,19 +1,26 @@
 .grid{
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 30px;
+    gap: 25px;
 }
-/* For Tablet Devices */
-@media screen and (max-width: 768px) {
+/* For Small Laptop Devices */
+@media screen and (max-width: 1024px) {
     .grid {
         grid-template-columns: repeat(4, 1fr);
         gap: 20px;
     }
 }
-/* For Mobile Devices */
-@media screen and (max-width: 425px) {
+/* For Tablet Devices */
+@media screen and (max-width: 768px) {
     .grid {
         grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+    }
+}
+/* For Mobile Devices */
+@media screen and (max-width: 640px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
         gap: 10px;
     }
 }
