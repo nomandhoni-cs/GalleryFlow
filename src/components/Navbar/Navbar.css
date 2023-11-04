@@ -1,0 +1,46 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 1rem;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: black;
+    display: flex;
+    align-items: center;
+}
+.logo img {
+    margin-right: 10px;
+}
+
+.github-link {
+    display: flex;
+    align-items: center;
+    color: black;
+    text-decoration: none;
+}
+
+.github-icon {
+    font-size: 1.2rem;
+    margin-right: 0.5rem;
+}
+
+/* Mobile responsive styles */
+@media screen and (max-width: 768px) {
+    .logo {
+        font-size: 1.2rem;
+    }
+
+    .github-icon {
+        font-size: 1rem;
+    }
+}
+/* Mobile responsive styles */
+@media screen and (max-width: 425px) {
+.link-text{
+    display: none;
+}
+}

@@ -1,0 +1,17 @@
+.gallery-container {
+    margin-top: 3rem;
+    padding: 0 3rem;
+}
+
+@media screen and (max-width: 768px) {
+    .gallery-container {
+        margin-top: 2rem;
+        padding: 1rem;
+    }
+}
+@media screen and (max-width: 425px) {
+    .gallery-container {
+        margin-top: 1rem;
+        padding: 0;
+    }
+}

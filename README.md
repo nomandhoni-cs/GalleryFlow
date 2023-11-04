@@ -1,8 +1,16 @@
-# React + Vite
+# GalleryFlow
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![image](https://github.com/nomandhoni-cs/GalleryFlow/assets/92979541/bfa85187-6980-49d4-9428-690d693b1898)
 
-Currently, two official plugins are available:
+### Plugins I have used
+- [x] @dnd-kit
+- [x] @react-icons
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
+1. **Gallery Layout**
+2. **Sorting**
+3. **Deleting Multiple Images**
+4. **Setting Feature Image**
+5. **User Experience**
+6. **Live Demo**
+

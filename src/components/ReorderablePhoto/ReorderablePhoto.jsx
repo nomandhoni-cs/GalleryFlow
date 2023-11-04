@@ -47,11 +47,7 @@ export const ReorderablePhoto = (props) => {
         {...attributes}
         {...listeners}
       />
-      <input
-        type="checkbox"
-        checked={isChecked} // Use isChecked to control the checked state
-        className="checkbox"
-      />
+      <input type="checkbox" checked={isChecked} className="checkbox" />
     </label>
   );
 };
