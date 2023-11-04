@@ -1,17 +1,17 @@
 .gallery-container {
-    margin-top: 3rem;
-    padding: 0 3rem;
+    margin-top: 30px;
+    padding: 0 30px;
 }
 
 @media screen and (max-width: 768px) {
     .gallery-container {
-        margin-top: 2rem;
-        padding: 1rem;
+        margin-top: 20px;
+        padding: 10px;
     }
 }
 @media screen and (max-width: 425px) {
     .gallery-container {
-        margin-top: 1rem;
+        margin-top: 10px;
         padding: 0;
     }
 }
