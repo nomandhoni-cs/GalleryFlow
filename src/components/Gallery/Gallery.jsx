@@ -18,9 +18,8 @@ import { GridLayout } from "../GridLayout/GridLayout";
 import { SinglePhoto } from "../SinglePhoto/SinglePhoto";
 import { ReorderablePhoto } from "../ReorderablePhoto/ReorderablePhoto";
 
-const Gallery = ({ items, setItems }) => {
+const Gallery = ({ items, setItems, selectedImages, setSelectedImages }) => {
   const [activeId, setActiveId] = useState(null);
-  const [selectedImages, setSelectedImages] = useState([]);
   const sensors = useSensors(useSensor(MouseSensor), useSensor(TouchSensor));
   function handleSelectImage(imageUrl) {
     setSelectedImages((selectedImages) => [...selectedImages, imageUrl]);

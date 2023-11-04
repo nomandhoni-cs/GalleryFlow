@@ -3,3 +3,17 @@
     grid-template-columns: repeat(5, 1fr);
     gap: 20px;
 }
+/* For Tablet Devices */
+@media screen and (max-width: 768px) {
+    .grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+    }
+}
+/* For Mobile Devices */
+@media screen and (max-width: 425px) {
+    .grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+    }
+}

@@ -20,7 +20,6 @@ export const ReorderablePhoto = (props) => {
       onSelect(url);
     }
   };
-
   const divStyle = {
     transformOrigin: "0 0",
     cursor: "pointer",
@@ -33,31 +32,17 @@ export const ReorderablePhoto = (props) => {
   return (
     <label
       className={`photo-container ${selected ? "selected" : ""}`}
-      onClick={() => {
-        if (selected) {
-          onDeselect(url);
-        } else {
-          onSelect(url);
-        }
-      }}
+      onClick={() => handleSelect()} // Remove the inner click handler
       style={divStyle}
     >
       <SinglePhoto
         ref={setNodeRef}
-        style={style}
         url={url}
-        index={index}
         {...props}
         {...attributes}
         {...listeners}
       />
-      <input
-        type="checkbox"
-        checked={selected}
-        onChange={handleSelect}
-        className="checkbox"
-      />
-      <span className="selected-count">{selected ? "Selected" : ""}</span>
+      <input type="checkbox" checked={selected} className="checkbox" />
     </label>
   );
 };

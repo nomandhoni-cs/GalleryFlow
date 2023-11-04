@@ -23,6 +23,13 @@
     transform: scale(1.5);
 }
 
+/* For Mobile Devices */
+@media screen and (max-width: 425px) {
+    .checkbox {
+        transform: scale(1);
+    }
+}
+
 .photo-container:hover .checkbox {
     display: block;
 }
