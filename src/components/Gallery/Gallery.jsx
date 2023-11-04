@@ -18,14 +18,16 @@ import "./Gallery.css";
 import { GridLayout } from "../GridLayout/GridLayout";
 import { SinglePhoto } from "../SinglePhoto/SinglePhoto";
 import { ReorderablePhoto } from "../ReorderablePhoto/ReorderablePhoto";
+import ImageUpload from "../ImageUpload/ImageUpload";
 
 const Gallery = ({ items, setItems, selectedImages, setSelectedImages }) => {
   const [activeId, setActiveId] = useState(null);
   const sensors = useSensors(useSensor(MouseSensor), useSensor(TouchSensor));
+  // Handle Image Select Function
   function handleSelectImage(imageUrl) {
     setSelectedImages((selectedImages) => [...selectedImages, imageUrl]);
   }
-
+  // Handle Image UnCheck
   function handleDeselectImage(imageUrl) {
     setSelectedImages((selectedImages) =>
       selectedImages.filter((url) => url !== imageUrl)
@@ -53,9 +55,11 @@ const Gallery = ({ items, setItems, selectedImages, setSelectedImages }) => {
                 onDeselect={handleDeselectImage}
               />
             ))}
+            {/* Extra Image Upload Component  */}
+            <ImageUpload />
           </GridLayout>
         </SortableContext>
-
+        {/* When Dragging the image show this Overlay  */}
         <DragOverlay
           style={{
             border: "1px solid gray",
@@ -76,10 +80,11 @@ const Gallery = ({ items, setItems, selectedImages, setSelectedImages }) => {
     </div>
   );
 
+  // Dragging Start Function
   function handleDragStart(event) {
     setActiveId(event.active.id);
   }
-
+  //  Dragging End Function
   function handleDragEnd(event) {
     const { active, over } = event;
 
@@ -95,6 +100,7 @@ const Gallery = ({ items, setItems, selectedImages, setSelectedImages }) => {
     setActiveId(null);
   }
 
+  // Dragging Cancel Function
   function handleDragCancel() {
     setActiveId(null);
   }
